@@ -5,6 +5,8 @@
 如: char,byte,short,int,long,float,double,boolean,char八種型別變數
 基本資料型別的變數是存放在Stack堆疊儲存空間，
 則呼叫敘述的實引引數與被呼叫方法的虛引數是分別佔用不同記憶體
+```
+```
  package ex05;
 
 public class CallByVal {
@@ -49,6 +51,8 @@ https://www.tutorialspoint.com/compile_java_online.php
 ```
 是指多個名稱相同但參數個數或型別不同的方法
 ，編譯器依傳入參數的個數、型別與順序決定使用哪一個方法。
+```
+```
 void methed()()
 int methed()()
 void methed (int a)
