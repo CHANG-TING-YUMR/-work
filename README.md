@@ -18,38 +18,58 @@
 舉個常見的例子，Convert.ToByte() 可傳入 int, short, string, float, double, decimal, char… 等輸入值
 ，將其轉成 byte，傳入 string 時還能指定 16 進位（fromBase）或 IFormatProvider。
 
-
-靜態遞迴
-class Fibonacci{  
-public static void main(String args[])  
-{    
- int n1=0,n2=1,n3,i,count=10;    
- System.out.print(n1+" "+n2);
-    
- for(i=2;i<count;++i)  
- {    
-  n3=n1+n2;    
-  System.out.print(" "+n3);    
-  n1=n2;    
-  n2=n3;    
- }    
+```
+### 靜態遞迴  Fibonacci Series
+```
+public class RecursionExample4 {  
+    static int n1=0,n2=1,n3=0;      
+     static void printFibo(int count){      
+        if(count>0){      
+             n3 = n1 + n2;      
+             n1 = n2;      
+             n2 = n3;      
+             System.out.print(" "+n3);     
+             printFibo(count-1);      
+         }      
+     }        
   
-}}  
+public static void main(String[] args) {  
+    int count=15;      
+      System.out.print(n1+" "+n2);//printing 0 and 1      
+      printFibo(count-2);//n-2 because 2 numbers are already printed     
+}  
+}  
+```
+## 結果:
+```
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377
+```
 
-
-Interative 遞迴
-
-class InterativeFibonacci{  
-public static void main(String args[]) 
-int fib (int n) {
-    int fib = 0;
-    int a = 1;
-    for(int i=0; i<n; i++) {
-        fib = fib + a;
-        a = fib;
-        System.out.print(fib);
-    }
-    return fib;
-}
-
+### iterative:
+```
+import java.util.Collection;  
+import java.util.Iterator;  
+import java.util.concurrent.ConcurrentLinkedQueue;  
+public class JavaCollectionIteratorExample1 {  
+    static int i = 1;  
+    public static void main(String[] args) {  
+        Collection<String> collection = new ConcurrentLinkedQueue<String>();  
+        collection.add("Ram");  
+        collection.add("Sham");  
+        collection.add("Mira");  
+        collection.add("Rajesh");  
+        Iterator<String> iterator = collection.iterator();  
+        //Returns an iterator over the elements  
+        while (iterator.hasNext()) {  
+            System.out.println(i++ + "." + iterator.next());  
+        }  
+    }  
+    
+ ```
+ ## 結果
+ ```
+ 1.Ram
+2.Sham
+3.Mira
+4.Rajesh
 ```
